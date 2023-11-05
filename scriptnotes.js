@@ -14,15 +14,34 @@ function tempGetComputerChoice() {                          // fixed computer ch
 }
 
 
-
-
 function getComputerChoice() {                               // console logs the randomly generated computer choice
     let rngValue = (parseInt(Math.random() * 100) + 1);
     if (rngValue > 67) {
-        console.log('Rock');
+        console.log('rock');
     } else  if ((rngValue > 34) && (rngValue <= 67)) {
-        console.log('Paper');
+        console.log('paper');
     } else {
-        console.log('Scissors');
+        console.log('scissors');
     }
+}
+
+
+
+function getComputerChoice() {                               // returns choice as a string
+    let rngValue = (parseInt(Math.random() * 100) + 1);
+    if (rngValue > 67) {
+        return 'rock'
+    } else  if ((rngValue > 34) && (rngValue <= 67)) {
+        return 'paper'
+    } else {
+        return 'scissors'
+    }
+}
+
+// prompt user to make a choice, then make computer make a choice, and then compare users choice to computer choice
+// 
+
+function playGame() {                                 
+    let playerChoice = prompt('rockpaperscissors');
+    let computerChoice = getComputerChoice();           // returns computerChoice successfully
 }

@@ -1,19 +1,20 @@
-let playerChoice;
-
 
 
 function getComputerChoice() {                               // returns choice as a string
     let rngValue = (parseInt(Math.random() * 100) + 1);
     if (rngValue > 67) {
-        return 'Rock'
+        return 'rock'
     } else  if ((rngValue > 34) && (rngValue <= 67)) {
-        return 'Paper'
+        return 'paper'
     } else {
-        return 'Scissors'
+        return 'scissors'
     }
 }
 
-
+function playGame() {                                 
+    let playerChoice = prompt('rockpaperscissors');
+    let computerChoice = getComputerChoice();
+}
 
 
 
@@ -37,7 +38,7 @@ function getComputerChoice() {                               // returns choice a
 // user will open console, type in something to start the game
 // user will then be prompted to select either rock, paper, or scissors
 // store this choice
-// compare this choice to the computer's randomly generated choice
+// compare this choice to the computer's randomly generated choice   HOW DO WE DO THIS???
 // determine the winner
 // return a message declaring the winner and reasoning (paper beats rock)
 // repeat this for 5 rounds starting from the prompt
