@@ -38,10 +38,16 @@ function getComputerChoice() {                               // returns choice a
     }
 }
 
+
 // prompt user to make a choice, then make computer make a choice, and then compare users choice to computer choice
-// 
+// to compare, could use switch
 
 function playGame() {                                 
     let playerChoice = prompt('rockpaperscissors');
     let computerChoice = getComputerChoice();           // returns computerChoice successfully
 }
+
+
+// problem: writing each possible comparison would take 27 conditionals
+// why is this a problem: dont want to write all that, it would be ugly
+// how can i solve this: start by figuring out how to compare better

@@ -17,7 +17,6 @@ function playGame() {
 }
 
 
-
 // rock, paper, scissors 
 // rock beats paper, loses to scissors
 // scissors beats paper, loses to rock
