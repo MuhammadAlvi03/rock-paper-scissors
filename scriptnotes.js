@@ -50,4 +50,4 @@ function playGame() {
 
 // problem: writing each possible comparison would take 27 conditionals
 // why is this a problem: dont want to write all that, it would be ugly
-// how can i solve this: start by figuring out how to compare better, look at short circuits to start
+// how can i solve this: start by figuring out how to compare better, learn Objects
