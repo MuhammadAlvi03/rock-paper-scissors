@@ -2,15 +2,14 @@ let playerChoice;
 
 
 
-function getComputerChoice() {                               // rng works, but computerchoice is always undefined
+function getComputerChoice() {                               // returns choice as a string
     let rngValue = (parseInt(Math.random() * 100) + 1);
-    let computerChoice;
     if (rngValue > 67) {
-        computerChoice = 1;
+        return 'Rock'
     } else  if ((rngValue > 34) && (rngValue <= 67)) {
-        computerChoice = 2;
+        return 'Paper'
     } else {
-        computerChoice = 3;
+        return 'Scissors'
     }
 }
 
