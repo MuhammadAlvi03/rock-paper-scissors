@@ -18,7 +18,7 @@ function playGame() {
     let playerChoice = playerChoiceInitial.toLowerCase();                             // changes playerChoiceInitial string to lower case and stores choice in playerChoice
     let computerChoice = getComputerChoice();                                         // calls getComputerChoice function, stores function result in computerChoice
     if ((playerChoice == 'rock') && (computerChoice == 'rock')) {
-        console.log('It\'s a draw! Both chose rock.');
+        return 'It\'s a draw! Both chose rock.' ;
     } else if ((playerChoice == 'rock') && (computerChoice == 'paper')) {
         console.log('You lose. Paper beats rock.');
     } else if ((playerChoice == 'rock') && (computerChoice == 'scissors')) {

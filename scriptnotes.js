@@ -44,10 +44,25 @@ function getComputerChoice() {                               // returns choice a
 
 function playGame() {                                 
     let playerChoice = prompt('rockpaperscissors');
-    let computerChoice = getComputerChoice();           // returns computerChoice successfully
+    let computerChoice = getComputerChoice();           // returns computerChoice as string successfully
 }
 
 
-// problem: writing each possible comparison would take 27 conditionals
+function playGame() {                                 // WIP playGame function
+    let playerChoice = prompt('rockpaperscissors');
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice);                    // logs computer's choice
+    if ((playerChoice == 'rock') && (computerChoice == 'scissors')) {
+        console.log('You win! Rock beats paper!');
+    } else {
+        console.log('other');
+    }
+}
+
+
+
+
+
+// problem: writing each possible comparison would take a lot of conditionals
 // why is this a problem: dont want to write all that, it would be ugly
 // how can i solve this: start by figuring out how to compare better, learn Objects
