@@ -14,3 +14,11 @@
 
 // could start with RNG to return computer choice
 // then store the computer choice, and compare it to player choice
+
+// user will open console, type in something to start the game
+// user will then be prompted to select either rock, paper, or scissors
+// store this choice
+// compare this choice to the computer's randomly generated choice
+// determine the winner
+// return a message declaring the winner and reasoning (paper beats rock)
+// repeat this for 5 rounds starting from the prompt
