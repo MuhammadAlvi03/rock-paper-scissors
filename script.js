@@ -1,3 +1,23 @@
+let playerChoice;
+
+
+
+function getComputerChoice() {                               // rng works, but computerchoice is always undefined
+    let rngValue = (parseInt(Math.random() * 100) + 1);
+    let computerChoice;
+    if (rngValue > 67) {
+        computerChoice = 1;
+    } else  if ((rngValue > 34) && (rngValue <= 67)) {
+        computerChoice = 2;
+    } else {
+        computerChoice = 3;
+    }
+}
+
+
+
+
+
 // rock, paper, scissors 
 // rock beats paper, loses to scissors
 // scissors beats paper, loses to rock
