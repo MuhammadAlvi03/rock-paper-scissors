@@ -42,13 +42,13 @@ function getComputerChoice() {                               // returns choice a
 // prompt user to make a choice, then make computer make a choice, and then compare users choice to computer choice
 // to compare, could use switch
 
-function playGame() {                                 
+function playRound() {                                 
     let playerChoice = prompt('rockpaperscissors');
     let computerChoice = getComputerChoice();           // returns computerChoice as string successfully
 }
 
 
-function playGame() {                                 // WIP playGame function
+function playRound() {                                 // WIP playRound function
     let playerChoice = prompt('rockpaperscissors');
     let computerChoice = getComputerChoice();
     console.log(computerChoice);                    // logs computer's choice
@@ -59,7 +59,7 @@ function playGame() {                                 // WIP playGame function
     }
 }
 
-function playGame() {                                                                 // working playGame function, logs result to console
+function playRound() {                                                                 // working playRound function, logs result to console
     let playerChoiceInitial = prompt('rockpaperscissors');                            // prompts player to enter a choice, and stores choice in playerChoiceInitial
     let playerChoice = playerChoiceInitial.toLowerCase();                             // changes playerChoiceInitial string to lower case and stores choice in playerChoice
     let computerChoice = getComputerChoice();                                         // calls getComputerChoice function, stores function result in computerChoice

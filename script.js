@@ -12,7 +12,7 @@ function getComputerChoice() {                               // returns choice a
 }
 
 
-function playGame() {                                 
+function playRound() {                                 
     let playerChoiceInitial = prompt('rockpaperscissors');                            // prompts player to enter a choice, and stores choice in playerChoiceInitial
     let playerChoice = playerChoiceInitial.toLowerCase();                             // changes playerChoiceInitial string to lower case and stores choice in playerChoice
     let computerChoice = getComputerChoice();                                         // calls getComputerChoice function, stores function result in computerChoice
