@@ -43,7 +43,47 @@ function playRound() {
 
 
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+   
+    playRound();
+    if (playRound() == 1) {
+        (playerScore++);
+    } else if (playRound() == 2) {
+        (computerScore++);
+    }
     
+    playRound();
+    if (playRound() == 1) {
+        (playerScore++);
+    } else if (playRound() == 2) {
+        (computerScore++);
+    }
+   
+
+    playRound();
+    if (playRound() == 1) {
+        (playerScore++);
+    } else if (playRound() == 2) {
+        (computerScore++);
+    }
+   
+
+    playRound();
+    if (playRound() == 1) {
+        (playerScore++);
+    } else if (playRound() == 2) {
+        (computerScore++);
+    }
+    
+
+    playRound();
+    if (playRound() == 1) {
+        (playerScore++);
+    } else if (playRound() == 2) {
+        (computerScore++);
+    }
+
 }
 
 
