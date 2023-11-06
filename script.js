@@ -12,80 +12,55 @@ function getComputerChoice() {                               // returns choice a
 }
 
 
-function playRound() {                                 
-    let playerChoiceInitial = prompt('rockpaperscissors');                            // prompts player to enter a choice, and stores choice in playerChoiceInitial
-    let playerChoice = playerChoiceInitial.toLowerCase();                             // changes playerChoiceInitial string to lower case and stores choice in playerChoice
-    let computerChoice = getComputerChoice();                                         // calls getComputerChoice function, stores function result in computerChoice
+function playRound() {                                                              // working playRound function, logs result to console and returns result as integer
+    const playerChoiceInitial = prompt('rockpaperscissors');                          // prompts player to enter a choice, and stores choice in playerChoiceInitial
+    const playerChoice = playerChoiceInitial.toLowerCase();                           // changes playerChoiceInitial string to lower case and stores choice in playerChoice
+    const computerChoice = getComputerChoice();                                       // calls getComputerChoice function, stores function result in computerChoice
+
     if ((playerChoice == 'rock') && (computerChoice == 'rock')) {
-        return 'It\'s a draw! Both chose rock.';
+        console.log('It\'s a draw! Both chose rock.');
     } else if ((playerChoice == 'rock') && (computerChoice == 'paper')) {
-        return 'You lose. Paper beats rock.';
+        console.log('You lose. Paper beats rock.');
+        return 2;
     } else if ((playerChoice == 'rock') && (computerChoice == 'scissors')) {
-        return 'You win! Rock beats scissors';
+        console.log('You win! Rock beats scissors');
+        return 1;
     
     } else if ((playerChoice == 'paper') && (computerChoice == 'rock')) {
-        return 'You win! Paper beats rock.';
+        console.log('You win! Paper beats rock.');
+        return 1;
     } else if ((playerChoice == 'paper') && (computerChoice == 'paper')) {
-        return 'It\'s a draw! Both chose paper.';
+        console.log('It\'s a draw! Both chose paper.');
     } else if ((playerChoice == 'paper') && (computerChoice == 'scissors')) {
-        return 'You lose. Scissors beats paper.';
-   
+        console.log('You lose. Scissors beats paper.');
+        return 2;
+    
     } else if ((playerChoice == 'scissors') && (computerChoice == 'rock')) {
-        return 'You lose. Rock beats scissors.';
+        console.log('You lose. Rock beats scissors.');
+        return 2;
     } else if ((playerChoice == 'scissors') && (computerChoice == 'paper')) {
-        return 'You win! Scissors beats paper.';
+        console.log('You win! Scissors beats paper.');
+        return 1;
     } else if ((playerChoice == 'scissors') && (computerChoice == 'scissors')) {
-        return 'It\'s a draw! Both chose scissors.';
+        console.log('It\'s a draw! Both chose scissors.');
+    }
+
+}
+
+
+// this doesnt work
+
+function game() { 
+    const playerScore = 0;
+    const computerChoice = 0;
+    
+    playRound();
+    if (playRound == 2) {
+        alert('you lost');
     } else {
-        return 'Please enter either "rock", "paper", or "scissors".';
+        alert('you won or draw');
     }
 }
-
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-   
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-    
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-   
-
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-   
-
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-    
-
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-
-}
-
 
 
 
