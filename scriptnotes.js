@@ -185,46 +185,24 @@ function playRound() {                                                          
     
 }
 
-function game() {
+
+// game function framework
+
+function game() { 
     let playerScore = 0;
     let computerScore = 0;
    
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
+    let roundResult = playRound();
+    if (roundResult == 1) {
+        console.log('score add player');
+    } else if (roundResult == 2) {
+        console.log('score add computer');
+    } else if (roundResult == 3) {
+        console.log('draw');
+    } else {
+        console.log('couldnt get result');
     }
 
     playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-   
-
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-   
-
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-    
-
-    playRound();
-    if (playRound() == 1) {
-        (playerScore++);
-    } else if (playRound() == 2) {
-        (computerScore++);
-    }
-
+    // add if statements here
 }

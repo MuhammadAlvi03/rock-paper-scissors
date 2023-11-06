@@ -11,14 +11,24 @@ function getComputerChoice() {                               // returns choice a
     }
 }
 
+function getPlayerChoice() {
+    const playerChoiceInitial = prompt('Enter either rock, paper, or scissors.');
+    const playerChoice = playerChoiceInitial.toLowerCase();
+    return playerChoice;
+}
 
-function playRound() {                                                              // working playRound function, logs result to console and returns result as integer
-    const playerChoiceInitial = prompt('rockpaperscissors');                          // prompts player to enter a choice, and stores choice in playerChoiceInitial
-    const playerChoice = playerChoiceInitial.toLowerCase();                           // changes playerChoiceInitial string to lower case and stores choice in playerChoice
-    const computerChoice = getComputerChoice();                                       // calls getComputerChoice function, stores function result in computerChoice
+// working playRound function, logs result to console and returns result as integer
+// calls getPlayerChoice function, stores result in playerChoice
+// calls getComputerChoice function, stores result in computerChoice
 
+
+function playRound() {                                                              
+    const playerChoice = getPlayerChoice();                                         
+    const computerChoice = getComputerChoice();                                    
+    
     if ((playerChoice == 'rock') && (computerChoice == 'rock')) {
         console.log('It\'s a draw! Both chose rock.');
+        return 3;
     } else if ((playerChoice == 'rock') && (computerChoice == 'paper')) {
         console.log('You lose. Paper beats rock.');
         return 2;
@@ -31,6 +41,7 @@ function playRound() {                                                          
         return 1;
     } else if ((playerChoice == 'paper') && (computerChoice == 'paper')) {
         console.log('It\'s a draw! Both chose paper.');
+        return 3;
     } else if ((playerChoice == 'paper') && (computerChoice == 'scissors')) {
         console.log('You lose. Scissors beats paper.');
         return 2;
@@ -43,23 +54,31 @@ function playRound() {                                                          
         return 1;
     } else if ((playerChoice == 'scissors') && (computerChoice == 'scissors')) {
         console.log('It\'s a draw! Both chose scissors.');
+        return 3;
     }
 
 }
 
 
-// this doesnt work
+// plays one round
 
 function game() { 
-    const playerScore = 0;
-    const computerChoice = 0;
-    
-    playRound();
-    if (playRound == 2) {
-        alert('you lost');
+    let playerScore = 0;
+    let computerScore = 0;
+   
+    let roundResult = playRound();
+    if (roundResult == 1) {
+        console.log('score add player');
+    } else if (roundResult == 2) {
+        console.log('score add computer');
+    } else if (roundResult == 3) {
+        console.log('draw');
     } else {
-        alert('you won or draw');
+        console.log('couldnt get result');
     }
+
+    playRound();
+    // add if statements here
 }
 
 
