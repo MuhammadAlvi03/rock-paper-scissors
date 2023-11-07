@@ -60,7 +60,7 @@ function playRound() {
 }
 
 
-// plays one round
+// plays one round, add a loop
 
 function game() { 
     let playerScore = 0;
@@ -68,17 +68,19 @@ function game() {
    
     let roundResult = playRound();
     if (roundResult == 1) {
-        console.log('score add player');
+        playerScore++;
+        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
     } else if (roundResult == 2) {
-        console.log('score add computer');
+        computerScore++;
+        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
     } else if (roundResult == 3) {
-        console.log('draw');
+        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
     } else {
         console.log('couldnt get result');
     }
 
-    playRound();
-    // add if statements here
+
+
 }
 
 
