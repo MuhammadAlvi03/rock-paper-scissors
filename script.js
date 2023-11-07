@@ -20,7 +20,7 @@ function getPlayerChoice() {
 // working playRound function, logs result to console and returns result as integer
 // calls getPlayerChoice function, stores result in playerChoice
 // calls getComputerChoice function, stores result in computerChoice
-
+// compares playerChoice and computerChoice to determine integer value which equates to win, loss, or draw
 
 function playRound() {                                                              
     const playerChoice = getPlayerChoice();                                         
@@ -60,12 +60,14 @@ function playRound() {
 }
 
 
-// plays one round, add a loop
+// calls playRound function 5 times
+// compares computerScore to playerScore to determine winner
+// console logs winner and ending score
 
 function game() { 
     let playerScore = 0;
     let computerScore = 0;
-   
+  for (let i = 0; i < 5; i++) {
     let roundResult = playRound();
     if (roundResult == 1) {
         playerScore++;
@@ -78,9 +80,14 @@ function game() {
     } else {
         console.log('couldnt get result');
     }
-
-
-
+}
+    if (computerScore > playerScore) {
+        console.log(`Computer wins! The final score is ${computerScore} - ${playScore}`);
+    } else if (computerScore < playerScore) {
+        console.log(`You won! The final score is ${playerScore} - ${computerScore}`);
+    } else {
+        console.log(`Game ended in a draw! The final score is ${playerScore} - ${computerScore}`);
+    }
 }
 
 
