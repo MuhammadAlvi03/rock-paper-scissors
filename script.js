@@ -89,3 +89,35 @@ function game() {
         console.log(`Game ended in a draw! The final score is ${playerScore} - ${computerScore}`);
     }
 }
+
+/* 
+
+gameplay
+Start the game
+    for now this does not need to be a specific step
+Player will press a button, either r, p, or s
+    This button will:
+    determine playerChoice
+        how?
+    compare the playerChoice to computerChoice
+        use the if statements in playRound()
+    decide the winner
+        use the if statements in playRound()
+    output a message saying who won the round, and the reasoning
+        maybe use textContent method?
+    increment a counter based on who won, and display this counter
+        could use same logic as original (computerScore++ or playerScore++)
+        maybe change textContent to score?
+This is one round of gameplay
+Player will play rounds until either the Player or the Computer reaches a score of 5
+    can use the scores previously used in game() to determine when the score has reached 5
+When score reaches 5, output a message declaring who won the overall game
+End the game
+*/
+
+/* current problems: determining playerChoice */
+// need to determine playerChoice based on which button is pressed
+// based on button type, could return the playerChoice!
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', playRound));
