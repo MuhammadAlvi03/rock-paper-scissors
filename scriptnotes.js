@@ -206,3 +206,11 @@ function game() {
     playRound();
     // add if statements here
 }
+
+
+// original function from prompt
+function getPlayerChoice() {
+    const playerChoiceInitial = prompt('Enter either rock, paper, or scissors.');
+    const playerChoice = playerChoiceInitial.toLowerCase();
+    return playerChoice;
+}
