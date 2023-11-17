@@ -67,14 +67,14 @@ When score reaches 5, output a message declaring who won the overall game
 End the game
 */
 
-// currently working on: refactoring playRound to increment a score that
-// will be displayed to the user
-// could set playerScore and computerScore to 0 at first inside playRound function
-// make the results increment the score
-// after incrementing, innerText to the score
+// currently working on: outputting message declaring round result and reasoning
+// .reason innerText to result?
 
 const playerScoreDisplay = document.querySelector('.playerScore');
 const computerScoreDisplay = document.querySelector('.cpuScore');
+
+const reasonDisplay = document.querySelector('.reason');
+reasonDisplay.innerText = 'Play the game';
 
 let playerScore = 0
 let computerScore = 0
@@ -86,37 +86,37 @@ function playRound(choice) {
     const computerChoice = getComputerChoice();                                    
     const playerChoice = choice;
     if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
-        console.log('It\'s a draw! Both chose rock.');
+        reasonDisplay.innerText = ('It\'s a draw! Both chose rock.');
     } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
-        console.log('You lose. Paper beats rock.');
+        reasonDisplay.innerText = ('You lose. Paper beats rock.');
         computerScore++;
         computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
     } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
-        console.log('You win! Rock beats scissors');
+        reasonDisplay.innerText = ('You win! Rock beats scissors');
         playerScore++;
         playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
 
     } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
-        console.log('You win! Paper beats rock.');
+        reasonDisplay.innerText = ('You win! Paper beats rock.');
         playerScore++;
         playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
     } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
-        console.log('It\'s a draw! Both chose paper.');
+        reasonDisplay.innerText = ('It\'s a draw! Both chose paper.');
     } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
-        console.log('You lose. Scissors beats paper.');
+        reasonDisplay.innerText = ('You lose. Scissors beats paper.');
         computerScore++;
         computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
     
     } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
-        console.log('You lose. Rock beats scissors.');
+        reasonDisplay.innerText = ('You lose. Rock beats scissors.');
         computerScore++;
         computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
     } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
-        console.log('You win! Scissors beats paper.');
+        reasonDisplay.innerText = ('You win! Scissors beats paper.');
         playerScore++;
         playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
     } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
-        console.log('It\'s a draw! Both chose scissors.');
+        reasonDisplay.innerText = ('It\'s a draw! Both chose scissors.');
     }
 }
 

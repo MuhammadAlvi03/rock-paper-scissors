@@ -214,3 +214,43 @@ function getPlayerChoice() {
     const playerChoice = playerChoiceInitial.toLowerCase();
     return playerChoice;
 }
+
+// console.log playRound
+
+function playRound(choice) {
+    const computerChoice = getComputerChoice();                                    
+    const playerChoice = choice;
+    if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
+        console.log('It\'s a draw! Both chose rock.');
+    } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
+        console.log('You lose. Paper beats rock.');
+        computerScore++;
+        computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+    } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
+        console.log('You win! Rock beats scissors');
+        playerScore++;
+        playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+
+    } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
+        console.log('You win! Paper beats rock.');
+        playerScore++;
+        playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+    } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
+        console.log('It\'s a draw! Both chose paper.');
+    } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
+        console.log('You lose. Scissors beats paper.');
+        computerScore++;
+        computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+    
+    } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
+        console.log('You lose. Rock beats scissors.');
+        computerScore++;
+        computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+    } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
+        console.log('You win! Scissors beats paper.');
+        playerScore++;
+        playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+    } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
+        console.log('It\'s a draw! Both chose scissors.');
+    }
+}
