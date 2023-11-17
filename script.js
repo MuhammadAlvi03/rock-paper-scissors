@@ -1,6 +1,4 @@
 
-let playerChoiceFromButton;
-
 function getComputerChoice() {                               // returns choice as a string
     let rngValue = (parseInt(Math.random() * 100) + 1);
     if (rngValue > 67) {
@@ -53,16 +51,15 @@ Start the game
 Player will press a button, either r, p, or s
     This button will:
     determine playerChoice
-        how?
     compare the playerChoice to computerChoice
         use the if statements in playRound()
     decide the winner
         use the if statements in playRound()
     output a message saying who won the round, and the reasoning
-        maybe use textContent method?
+        maybe use innerText method?
     increment a counter based on who won, and display this counter
         could use same logic as original (computerScore++ or playerScore++)
-        maybe change textContent to score?
+        maybe innerText to score?
 This is one round of gameplay
 Player will play rounds until either the Player or the Computer reaches a score of 5
     can use the scores previously used in game() to determine when the score has reached 5
@@ -70,25 +67,60 @@ When score reaches 5, output a message declaring who won the overall game
 End the game
 */
 
-/* current problems: determining playerChoice */
-// need to determine playerChoice based on which button is pressed
-// based on button type, could return the playerChoice!
+// currently working on: refactoring playRound to increment a score that
+// will be displayed to the user
+// could set playerScore and computerScore to 0 at first inside playRound function
+// make the results increment the score
+// after incrementing, innerText to the score
 
+const playerScoreDisplay = document.querySelector('.playerScore');
+const computerScoreDisplay = document.querySelector('.cpuScore');
 
+let playerScore = 0
+let computerScore = 0
 
-// original function from prompt
-function getPlayerChoice() {
-    const playerChoiceInitial = prompt('Enter either rock, paper, or scissors.');
-    const playerChoice = playerChoiceInitial.toLowerCase();
-    return playerChoice;
+playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+
+function playRound(choice) {
+    const computerChoice = getComputerChoice();                                    
+    const playerChoice = choice;
+    if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
+        console.log('It\'s a draw! Both chose rock.');
+    } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
+        console.log('You lose. Paper beats rock.');
+        computerScore++;
+        computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+    } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
+        console.log('You win! Rock beats scissors');
+        playerScore++;
+        playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+
+    } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
+        console.log('You win! Paper beats rock.');
+        playerScore++;
+        playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+    } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
+        console.log('It\'s a draw! Both chose paper.');
+    } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
+        console.log('You lose. Scissors beats paper.');
+        computerScore++;
+        computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+    
+    } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
+        console.log('You lose. Rock beats scissors.');
+        computerScore++;
+        computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
+    } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
+        console.log('You win! Scissors beats paper.');
+        playerScore++;
+        playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
+    } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
+        console.log('It\'s a draw! Both chose scissors.');
+    }
 }
 
 
-// new approach: make each button call playRound, and make playerChoice different based on
-// which button is pressed
-
-// rock button: add event listener click, on click will run playRound but playerChoice
-// will be determined on click rather than in playRound
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
@@ -104,44 +136,4 @@ const scissorsButton = document.querySelector('.scissors')
 scissorsButton.addEventListener('click', () => {
     playRound('scissors');
 })
-
-
-
-
-function playRound(choice) {                                                                                                      
-    const computerChoice = getComputerChoice();                                    
-    const playerChoice = choice;
-
-    if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
-        console.log('It\'s a draw! Both chose rock.');
-        return 3;
-    } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
-        console.log('You lose. Paper beats rock.');
-        return 2;
-    } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
-        console.log('You win! Rock beats scissors');
-        return 1;
-    
-    } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
-        console.log('You win! Paper beats rock.');
-        return 1;
-    } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
-        console.log('It\'s a draw! Both chose paper.');
-        return 3;
-    } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
-        console.log('You lose. Scissors beats paper.');
-        return 2;
-    
-    } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
-        console.log('You lose. Rock beats scissors.');
-        return 2;
-    } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
-        console.log('You win! Scissors beats paper.');
-        return 1;
-    } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
-        console.log('It\'s a draw! Both chose scissors.');
-        return 3;
-    }
-
-}
 
