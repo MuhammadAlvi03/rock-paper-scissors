@@ -254,3 +254,35 @@ function playRound(choice) {
         console.log('It\'s a draw! Both chose scissors.');
     }
 }
+
+
+
+// calls playRound function 5 times
+// compares computerScore to playerScore to determine winner
+// console logs winner and ending score
+// old game function
+function game() { 
+    let playerScore = 0;
+    let computerScore = 0;
+  for (let i = 0; i < 5; i++) {
+    let roundResult = playRound();
+    if (roundResult === 1) {
+        playerScore++;
+        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
+    } else if (roundResult === 2) {
+        computerScore++;
+        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
+    } else if (roundResult === 3) {
+        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
+    } else {
+        console.log('couldnt get result');
+    }
+}
+    if (computerScore > playerScore) {
+        console.log(`Computer wins! The final score is ${computerScore} - ${playerScore}`);
+    } else if (computerScore < playerScore) {
+        console.log(`You won! The final score is ${playerScore} - ${computerScore}`);
+    } else {
+        console.log(`Game ended in a draw! The final score is ${playerScore} - ${computerScore}`);
+    }
+}

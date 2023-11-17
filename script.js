@@ -9,40 +9,6 @@ function getComputerChoice() {                               // returns choice a
         return 'scissors'
     }
 }
-
-
-
-
-// calls playRound function 5 times
-// compares computerScore to playerScore to determine winner
-// console logs winner and ending score
-
-function game() { 
-    let playerScore = 0;
-    let computerScore = 0;
-//   for (let i = 0; i < 5; i++) {
-    let roundResult = playRound();
-    if (roundResult === 1) {
-        playerScore++;
-        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
-    } else if (roundResult === 2) {
-        computerScore++;
-        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
-    } else if (roundResult === 3) {
-        console.log(`The score is YOU:${playerScore} CPU:${computerScore}`);
-    } else {
-        console.log('couldnt get result');
-    }
-// }
-    if (computerScore > playerScore) {
-        console.log(`Computer wins! The final score is ${computerScore} - ${playerScore}`);
-    } else if (computerScore < playerScore) {
-        console.log(`You won! The final score is ${playerScore} - ${computerScore}`);
-    } else {
-        console.log(`Game ended in a draw! The final score is ${playerScore} - ${computerScore}`);
-    }
-}
-
 /* 
 
 gameplay
@@ -67,14 +33,16 @@ When score reaches 5, output a message declaring who won the overall game
 End the game
 */
 
-// currently working on: outputting message declaring round result and reasoning
-// .reason innerText to result?
+// currently working on: ending the game when score reaches 5
+// remove event listeners, loop through buttons
 
 const playerScoreDisplay = document.querySelector('.playerScore');
 const computerScoreDisplay = document.querySelector('.cpuScore');
-
+const winnerDisplay = document.querySelector('.winner');
+const buttons = document.querySelectorAll('button');
 const reasonDisplay = document.querySelector('.reason');
-reasonDisplay.innerText = 'Play the game';
+
+reasonDisplay.innerText = 'First to 5 points wins!';
 
 let playerScore = 0
 let computerScore = 0
@@ -86,41 +54,44 @@ function playRound(choice) {
     const computerChoice = getComputerChoice();                                    
     const playerChoice = choice;
     if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
-        reasonDisplay.innerText = ('It\'s a draw! Both chose rock.');
+        reasonDisplay.innerText = ('Round ended in draw! Both chose rock.');
     } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
-        reasonDisplay.innerText = ('You lose. Paper beats rock.');
+        reasonDisplay.innerText = ('You lost the round. Paper beats rock.');
         computerScore++;
         computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
     } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
-        reasonDisplay.innerText = ('You win! Rock beats scissors');
+        reasonDisplay.innerText = ('You win the round! Rock beats scissors');
         playerScore++;
         playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
 
     } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
-        reasonDisplay.innerText = ('You win! Paper beats rock.');
+        reasonDisplay.innerText = ('You win the round! Paper beats rock.');
         playerScore++;
         playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
     } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
-        reasonDisplay.innerText = ('It\'s a draw! Both chose paper.');
+        reasonDisplay.innerText = ('Round ended in draw! Both chose paper.');
     } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
-        reasonDisplay.innerText = ('You lose. Scissors beats paper.');
+        reasonDisplay.innerText = ('You lost the round. Scissors beats paper.');
         computerScore++;
         computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
     
     } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
-        reasonDisplay.innerText = ('You lose. Rock beats scissors.');
+        reasonDisplay.innerText = ('You lost the round. Rock beats scissors.');
         computerScore++;
         computerScoreDisplay.innerText = `CPU Score: ${computerScore}`;
     } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
-        reasonDisplay.innerText = ('You win! Scissors beats paper.');
+        reasonDisplay.innerText = ('You win the round! Scissors beats paper.');
         playerScore++;
         playerScoreDisplay.innerText = `Your Score: ${playerScore}`;
     } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
-        reasonDisplay.innerText = ('It\'s a draw! Both chose scissors.');
+        reasonDisplay.innerText = ('Round ended in draw! Both chose scissors.');
+    }
+    if (playerScore == 5) {
+        winnerDisplay.innerText = 'You won the game!'
+    } else if (computerScore == 5) {
+        winnerDisplay.innerText = 'CPU won the game.'
     }
 }
-
-
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
@@ -136,4 +107,3 @@ const scissorsButton = document.querySelector('.scissors')
 scissorsButton.addEventListener('click', () => {
     playRound('scissors');
 })
-
